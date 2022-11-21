@@ -1,6 +1,6 @@
 const canvas = document.querySelector("canvas");
-    canvas.w = window.innerWidth;
-    canvas.h = window.innerHeight;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
 const ctx = canvas.getContext("2d");
 
@@ -46,11 +46,11 @@ const spr_example = "./sprites/example.png";
 class con_cat {
     constructor() {
         this.position = {
-            x:canvas.w/2,
-            y:canvas.h/2,
+            x:canvas.width/2,
+            y:canvas.height/2,
         }
-        this.w = 450
-        this.h = 350
+        this.w = 50
+        this.h = 50
 
 
         this.image = new Image()
@@ -70,8 +70,8 @@ const pref_draw_stars = (number=1) => {
     ctx.fillStyle = "white";
 
     for (let i = 0; i < number; ++i) {
-        let x = Math.floor( Math.random()*canvas.w );
-        let y = Math.floor( Math.random()*canvas.h );
+        let x = Math.floor( Math.random()*canvas.width );
+        let y = Math.floor( Math.random()*canvas.height );
         
         ctx.fillRect(x,y,1,3);
         ctx.fillRect(--x,++y,3,1);
@@ -80,7 +80,7 @@ const pref_draw_stars = (number=1) => {
 
 const pref_draw_bg = (_color) => {
     ctx.fillStyle = _color;
-    ctx.fillRect(0,0,canvas.w,canvas.h);
+    ctx.fillRect(0,0,canvas.width,canvas.height);
     pref_draw_stars(20);
 }
 
@@ -93,7 +93,7 @@ const pref_draw_bg = (_color) => {
 const cat = new con_cat();
 
 const update = () => { //60 fps default
-    ctx.clearRect(0,0,canvas.w,canvas.h);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
     //STEPS
     // ball.step();
